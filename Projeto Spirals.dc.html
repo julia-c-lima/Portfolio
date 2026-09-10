@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&amp;family=Anton&amp;family=Italianno&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script src="./i18n.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#F4EFEB;color:#1A1A1A;font-family:Inter,sans-serif;font-size:.9375rem;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:hover{color:#A6432F}
+ul{list-style:none}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+[data-reveal]{animation:rise .7s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 30%}
+@media(prefers-reduced-motion:reduce){[data-reveal]{animation:none !important}html{scroll-behavior:auto}}
+@media(max-width:960px){[data-gc]{grid-column:1/-1 !important}[data-el="stage"]{grid-template-columns:1fr !important}[data-el="shots"]{grid-template-columns:1fr !important}}
+</style>
+</helmet>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="star4" viewBox="0 0 100 100"><path d="M50 0 C55 35 65 45 100 50 C65 55 55 65 50 100 C45 65 35 55 0 50 C35 45 45 35 50 0 Z" fill="currentColor"></path></symbol></svg>
+
+<header data-screen-label="Nav" style="position:fixed;left:0;right:0;top:0;z-index:50;background:rgba(244,239,235,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,26,26,.14)">
+  <div style="max-width:1280px;margin:0 auto;padding:18px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="Portfolio Editorial.dc.html" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.25rem;letter-spacing:.02em;color:#1A1A1A">Julia Lima<span style="color:#A6432F">.</span></a>
+  </div>
+</header>
+
+<section data-screen-label="Capa" style="padding-top:calc(80px + clamp(48px,8vh,96px))">
+  <div style="max-width:1280px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)">
+    <p data-reveal style="margin-bottom:28px"><a href="Portfolio Editorial.dc.html#projetos" style="display:inline-flex;gap:.6em;align-items:center;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;border-bottom:1px solid currentColor;padding-bottom:6px;color:#1A1A1A" style-hover="color:#6B1F24"><span>←</span> Voltar aos projetos</a></p>
+    <p data-reveal style="font-family:Anton,sans-serif;font-size:.8125rem;letter-spacing:.35em;display:flex;align-items:center;gap:14px;margin-bottom:20px;color:#A6432F;text-transform:uppercase"><svg style="width:14px;height:14px;flex:none" aria-hidden="true"><use href="#star4"></use></svg> Projeto 02 — Treinamento imersivo</p>
+    <h1 data-reveal style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(3.5rem,10vw,8.5rem);line-height:.92;letter-spacing:-.02em">Spi<em style="font-family:Italianno,cursive;font-weight:400;font-style:normal;font-size:1.35em;color:#A6432F">rals</em></h1>
+    <div data-reveal style="margin-top:clamp(28px,4vw,48px);border-top:1px solid rgba(26,26,26,.14);border-bottom:1px solid rgba(26,26,26,.14);padding:20px 0;display:flex;flex-wrap:wrap;gap:16px 56px">
+      <div><p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">Serviço</p><p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.0625rem">UX/UI · Design System</p></div>
+      <div><p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">Ferramentas</p><p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.0625rem">Figma · Unity</p></div>
+      <div><p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">Duração</p><p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.0625rem">2 meses</p></div>
+      <div><p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">Setor</p><p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.0625rem">B2B Industrial</p></div>
+    </div>
+    <div data-reveal style="margin-top:clamp(28px,4vw,48px);aspect-ratio:16/8;overflow:hidden;background:#6B1F24"><image-slot id="sp-cover" shape="rect" src="uploads/Mockuuups Free Clean desk with Dell display mockup.jpeg" placeholder="Capa do projeto Spirals"></image-slot></div>
+  </div>
+</section>
+
+<section data-screen-label="Visão e problema" style="padding-block:clamp(48px,7vh,80px)">
+  <div style="max-width:1280px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)">
+    <div data-reveal style="display:flex;align-items:flex-end;gap:24px;margin-bottom:clamp(32px,5vw,56px);border-bottom:1px solid rgba(26,26,26,.14);padding-bottom:24px">
+      <span style="font-family:Anton,sans-serif;font-size:clamp(4rem,8vw,7rem);line-height:.8;opacity:.14;letter-spacing:.02em">01</span>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2rem,5vw,4rem);line-height:1">Visão do <em style="font-family:Italianno,cursive;font-weight:400;font-style:normal;font-size:1.25em;color:#A6432F">projeto</em></h2>
+    </div>
+    <p data-reveal style="font-family:'Playfair Display',serif;font-size:clamp(1.125rem,2vw,1.5rem);line-height:1.5;text-wrap:pretty">Uma plataforma de treinamento imersiva e interativa para o setor B2B industrial, desenhada para otimizar o tempo de aprendizado prático e eliminar manuais analógicos complexos.</p>
+    <div data-reveal style="display:flex;gap:8px;flex-wrap:wrap;margin-top:24px">
+          <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">UX/UI</span>
+          <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Figma</span>
+          <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Design System</span>
+          <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Unity</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:clamp(32px,5vw,56px)">
+      <div data-gc data-reveal style="grid-column:1/7;background:#FAF8F5;border:1px solid rgba(26,26,26,.14);border-left:3px solid #6B1F24;padding:clamp(28px,3.5vw,48px)">
+          <h3 style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#6B1F24;display:inline-flex;align-items:center;gap:.75em" style-before="content:'';width:2.5em;height:1px;background:currentColor;opacity:.7">Problema</h3>
+          <p style="margin-top:20px;font-family:'Playfair Display',serif;font-size:clamp(1.0625rem,1.8vw,1.375rem);line-height:1.5;margin-bottom:24px;color:#1A1A1A">Os desafios do treinamento técnico tradicional:</p>
+          <ul style="display:flex;flex-direction:column;gap:16px;font-size:1rem;line-height:1.6;color:#1A1A1A">
+            <li style="display:flex;gap:14px;align-items:baseline;border-top:1px solid rgba(26,26,26,.14);padding-top:16px"><span style="color:#6B1F24;flex:none;font-size:.8em">✦</span>Manuais em papel ou PDFs estáticos geram lentidão no aprendizado;</li>
+            <li style="display:flex;gap:14px;align-items:baseline;border-top:1px solid rgba(26,26,26,.14);padding-top:16px"><span style="color:#6B1F24;flex:none;font-size:.8em">✦</span>Margem para erros operacionais na linha de montagem;</li>
+            <li style="display:flex;gap:14px;align-items:baseline;border-top:1px solid rgba(26,26,26,.14);padding-top:16px"><span style="color:#6B1F24;flex:none;font-size:.8em">✦</span>Custos elevados com treinamento técnico.</li>
+          </ul>
+      </div>
+      <div data-gc data-reveal style="grid-column:7/13;background:#6B1F24;color:#FAF8F5;padding:clamp(28px,3.5vw,48px);position:relative;overflow:hidden">
+        <h3 style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#FFFFFF;display:inline-flex;align-items:center;gap:.75em" style-before="content:'';width:2.5em;height:1px;background:currentColor;opacity:.7">Solução</h3>
+        <p style="margin-top:20px;font-family:'Playfair Display',serif;font-size:clamp(1.0625rem,1.8vw,1.375rem);line-height:1.5;margin-bottom:24px;color:#FFFFFF">Uma interface 3D interativa que torna o aprendizado prático e visual:</p>
+        <ul style="display:flex;flex-direction:column;gap:16px;font-size:1rem;line-height:1.6;color:#FFFFFF">
+          <li style="display:flex;gap:14px;align-items:baseline;border-top:1px solid rgba(255,255,255,.25);padding-top:16px"><span style="color:#FFFFFF;flex:none;font-size:.8em">✦</span>Guia visual passo a passo de cada etapa de montagem;</li>
+          <li style="display:flex;gap:14px;align-items:baseline;border-top:1px solid rgba(255,255,255,.25);padding-top:16px"><span style="color:#FFFFFF;flex:none;font-size:.8em">✦</span>Feedback em tempo real durante a operação;</li>
+          <li style="display:flex;gap:14px;align-items:baseline;border-top:1px solid rgba(255,255,255,.25);padding-top:16px"><span style="color:#FFFFFF;flex:none;font-size:.8em">✦</span>Simulação imersiva via óculos de realidade virtual.</li>
+        </ul>
+        <svg aria-hidden="true" style="position:absolute;right:-18px;bottom:-18px;width:90px;height:90px;color:#521418;opacity:.9"><use href="#star4"></use></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Processo" style="padding-block:clamp(48px,7vh,80px)">
+  <div style="max-width:1280px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)">
+    <div data-reveal style="display:flex;align-items:flex-end;gap:24px;margin-bottom:clamp(32px,5vw,56px);border-bottom:1px solid rgba(26,26,26,.14);padding-bottom:24px">
+      <span style="font-family:Anton,sans-serif;font-size:clamp(4rem,8vw,7rem);line-height:.8;opacity:.14;letter-spacing:.02em">02</span>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2rem,5vw,4rem);line-height:1">Processo de <em style="font-family:Italianno,cursive;font-weight:400;font-style:normal;font-size:1.25em;color:#A6432F">design</em></h2>
+    </div>
+    <p data-reveal style="font-size:.875rem;margin-bottom:clamp(32px,5vw,56px)">Dois meses de desenvolvimento, divididos estrategicamente entre a imersão nas regras de negócio da fábrica, testes de arquitetura espacial e a entrega da interface na Unity.</p>
+
+    <div data-el="stage" data-reveal style="display:grid;grid-template-columns:180px 1fr;gap:16px 40px;padding:clamp(20px,3vw,32px) 0;border-top:1px solid rgba(26,26,26,.14)">
+      <span style="font-family:Anton,sans-serif;font-size:1.125rem;letter-spacing:.12em;text-transform:uppercase;color:#6B1F24">Cronograma</span>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px" data-el="shots">
+        <div style="border-left:1px solid rgba(26,26,26,.14);padding-left:16px"><p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">Pesquisa</p><p style="font-size:.8125rem;opacity:.85;margin-top:4px">Benchmark e Persona (2 semanas)</p></div>
+        <div style="border-left:1px solid rgba(26,26,26,.14);padding-left:16px"><p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">Fluxo</p><p style="font-size:.8125rem;opacity:.85;margin-top:4px">User Flow e Sitemap (2 semanas)</p></div>
+        <div style="border-left:1px solid rgba(26,26,26,.14);padding-left:16px"><p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">UI Design</p><p style="font-size:.8125rem;opacity:.85;margin-top:4px">Alta fidelidade (2 semanas)</p></div>
+        <div style="border-left:1px solid rgba(26,26,26,.14);padding-left:16px"><p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">Prototipagem</p><p style="font-size:.8125rem;opacity:.85;margin-top:4px">Integração 3D com Unity (2 semanas)</p></div>
+      </div>
+    </div>
+
+    <div data-el="stage" data-reveal style="display:grid;grid-template-columns:180px 1fr;gap:16px 40px;padding:clamp(20px,3vw,32px) 0;border-top:1px solid rgba(26,26,26,.14)">
+      <span style="font-family:Anton,sans-serif;font-size:1.125rem;letter-spacing:.12em;text-transform:uppercase;color:#6B1F24">Persona</span>
+      <div style="max-width:70ch">
+        <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.0625rem">Carlos Eduardo, 48 anos — Operador de Linha de Montagem</p>
+        <ul style="margin-top:14px;display:flex;flex-direction:column;gap:12px;font-size:.8125rem;opacity:.85">
+          <li style="display:flex;gap:10px"><span style="flex:none;opacity:.5">—</span><span><strong style="font-weight:600">Objetivo:</strong> realizar a montagem de motores e componentes automotivos complexos com máxima precisão, agilidade e sem cometer erros operacionais.</span></li>
+          <li style="display:flex;gap:10px"><span style="flex:none;opacity:.5">—</span><span><strong style="font-weight:600">Motivação:</strong> dominar rapidamente os novos processos e tecnologias da fábrica para garantir eficiência, manter um bom desempenho na produção e crescer profissionalmente dentro da montadora.</span></li>
+          <li style="display:flex;gap:10px"><span style="flex:none;opacity:.5">—</span><span><strong style="font-weight:600">Desafio:</strong> aprender e memorizar sequências de montagem cheias de detalhes técnicos utilizando apenas manuais de instrução estáticos (papel ou PDFs longos), que geram dúvidas e lentidão durante o trabalho real.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div data-el="stage" data-reveal style="display:grid;grid-template-columns:180px 1fr;gap:16px 40px;padding:clamp(20px,3vw,32px) 0;border-top:1px solid rgba(26,26,26,.14)">
+      <span style="font-family:Anton,sans-serif;font-size:1.125rem;letter-spacing:.12em;text-transform:uppercase;color:#6B1F24">Fluxo do usuário</span>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em">
+        <span style="border:1px solid rgba(26,26,26,.35);border-radius:999px;padding:8px 18px">Acesso</span><span style="opacity:.4">→</span>
+        <span style="border:1px solid rgba(26,26,26,.35);border-radius:999px;padding:8px 18px">Login</span><span style="opacity:.4">→</span>
+        <span style="border:1px solid rgba(26,26,26,.35);border-radius:999px;padding:8px 18px">Maquinário</span><span style="opacity:.4">→</span>
+        <span style="border:1px solid rgba(26,26,26,.35);border-radius:999px;padding:8px 18px">Módulo</span><span style="opacity:.4">→</span>
+        <span style="border:1px solid rgba(26,26,26,.35);border-radius:999px;padding:8px 18px">Módulo 3D</span><span style="opacity:.4">→</span>
+        <span style="border:1px solid rgba(26,26,26,.35);border-radius:999px;padding:8px 18px">Etapas</span><span style="opacity:.4">→</span>
+        <span style="border:1px solid rgba(26,26,26,.35);border-radius:999px;padding:8px 18px">Suporte</span><span style="opacity:.4">→</span>
+        <span style="border:1px solid #6B1F24;background:#6B1F24;color:#FAF8F5;border-radius:999px;padding:8px 18px">Concluído</span>
+      </div>
+    </div>
+
+    <div data-el="stage" data-reveal style="display:grid;grid-template-columns:180px 1fr;gap:16px 40px;padding:clamp(20px,3vw,32px) 0;border-top:1px solid rgba(26,26,26,.14);border-bottom:1px solid rgba(26,26,26,.14)">
+      <span style="font-family:Anton,sans-serif;font-size:1.125rem;letter-spacing:.12em;text-transform:uppercase;color:#6B1F24">Tipografia &amp; cores</span>
+      <div style="max-width:70ch">
+        <p style="font-size:.8125rem;opacity:.85">Escolhas tipográficas para leitura rápida de dados técnicos e uma paleta de baixa saturação, focada no conforto visual em turnos longos de trabalho.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:24px;margin-top:16px;align-items:center">
+          <p style="font-size:.8125rem"><strong style="font-weight:600">Montserrat Bold</strong> — títulos e call-to-action</p>
+          <p style="font-size:.8125rem">Montserrat Regular — corpo de texto e descrições</p>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:16px;align-items:center">
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em"><span style="width:20px;height:20px;background:#101828;border:1px solid rgba(26,26,26,.14);display:inline-block"></span>Dark Navy</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em"><span style="width:20px;height:20px;background:#2563EB;display:inline-block"></span>Electric Blue</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em"><span style="width:20px;height:20px;background:#FFFFFF;border:1px solid rgba(26,26,26,.14);display:inline-block"></span>White</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Visão geral" style="padding-block:clamp(48px,7vh,80px)">
+  <div style="max-width:1280px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)">
+    <div data-reveal style="display:flex;align-items:flex-end;gap:24px;margin-bottom:clamp(32px,5vw,56px);border-bottom:1px solid rgba(26,26,26,.14);padding-bottom:24px">
+      <span style="font-family:Anton,sans-serif;font-size:clamp(4rem,8vw,7rem);line-height:.8;opacity:.14;letter-spacing:.02em">03</span>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2rem,5vw,4rem);line-height:1">Interfaces em <em style="font-family:Italianno,cursive;font-weight:400;font-style:normal;font-size:1.25em;color:#A6432F">funcionamento</em></h2>
+    </div>
+    <p data-reveal style="font-size:.875rem;margin-bottom:clamp(32px,5vw,56px)">As interfaces de alta fidelidade do sistema em funcionamento, evidenciando o contraste entre os componentes de controle, a assistência por chat e o foco absoluto no maquinário interativo.</p>
+    <div data-el="shots" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div data-reveal style="aspect-ratio:16/9;overflow:hidden;background:#101828"><image-slot id="sp-shot-1" shape="rect" src="assets/spirals-shot-1.png" placeholder="Tela 1 — módulo 3D"></image-slot></div>
+      <div data-reveal style="aspect-ratio:16/9;overflow:hidden;background:#101828"><image-slot id="sp-shot-2" shape="rect" src="assets/spirals-shot-2.png" placeholder="Tela 2 — assistência por chat"></image-slot></div>
+      <div data-reveal style="aspect-ratio:16/9;overflow:hidden;background:#101828"><image-slot id="sp-shot-3" shape="rect" src="assets/spirals-shot-3.png" placeholder="Tela 3 — etapas de montagem"></image-slot></div>
+      <div data-reveal style="aspect-ratio:16/9;overflow:hidden;background:#101828"><image-slot id="sp-shot-4" shape="rect" src="assets/spirals-shot-4.png" placeholder="Tela 4 — detalhe do passo a passo"></image-slot></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Fechamento" style="padding-block:clamp(48px,7vh,80px)">
+  <div style="max-width:1280px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)">
+    <div data-reveal style="background:#6B1F24;color:#FAF8F5;padding:clamp(32px,5vw,64px);position:relative;overflow:hidden">
+      <span style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#F4EFEB;display:inline-flex;align-items:center;gap:.75em" style-before="content:'';width:2.5em;height:1px;background:currentColor;opacity:.6">Obrigada!</span>
+      <p style="margin-top:28px;font-family:'Playfair Display',serif;font-size:clamp(1.0625rem,1.8vw,1.375rem);line-height:1.5;max-width:70ch">No Spirals entendi, na prática, que o trabalho não é deixar a tela bonita, e sim tirar peso da rotina de quem está no chão de fábrica. Cada fluxo e cada escolha visual nasceu de uma pergunta simples: isso facilita o trabalho dessa pessoa? O resultado foi algo raro em treinamento técnico: autonomia para quem opera, sem precisar de um manual ao lado.</p>
+      <svg aria-hidden="true" style="position:absolute;right:-22px;bottom:-22px;width:120px;height:120px;color:#521418;opacity:.9"><use href="#star4"></use></svg>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Próximo" style="border-top:1px solid rgba(26,26,26,.14);margin-top:clamp(40px,6vh,72px)">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,5vw,64px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+    <div>
+      <p style="font-size:.625rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#A6432F">Próximo projeto</p>
+      <a href="Projeto PetMatch.dc.html" style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.75rem,4vw,3rem);line-height:1.1;color:#1A1A1A" style-hover="color:#6B1F24">Paw<em style="font-style:italic;color:#A6432F">Match</em> →</a>
+    </div>
+    <a href="Portfolio Editorial.dc.html#projetos" style="display:inline-flex;align-items:center;gap:.6em;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;padding:14px 32px;border-radius:999px;border:1px solid #1A1A1A;background:transparent;color:#1A1A1A;transition:all .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:#1A1A1A;color:#F4EFEB">Todos os projetos</a>
+  </div>
+</footer>
+</x-dc>
+</body>
+</html>
