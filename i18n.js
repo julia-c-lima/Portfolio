@@ -171,7 +171,6 @@
     "Navegação principal": "Main navigation",
     "Ver projeto PawMatch": "View PawMatch project",
     "Ver projeto Spirals": "View Spirals project",
-    "Baixar currículo (PDF)": "Download résumé (PDF)",
     "Julia apresentando em um workshop de IA": "Julia presenting at an AI workshop",
     "Telas do app PawMatch em mockups de celular": "PawMatch app screens in phone mockups",
     "Interface do Spirals exibida em um monitor sobre uma mesa": "The Spirals interface on a desktop monitor",
