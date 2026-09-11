@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julia Lima — UX/UI Designer</title>
+<meta name="description" content="Portfólio de Julia Lima, UX/UI Designer: UX Research, testes de usabilidade, design systems e interfaces acessíveis. Cases PawMatch e Spirals.">
+<meta property="og:title" content="Julia Lima — UX/UI Designer">
+<meta property="og:description" content="Portfólio de UX/UI: research, usabilidade, design systems e interfaces acessíveis.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F4EFEB">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -11,7 +18,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&amp;family=Anton&amp;family=Italianno&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
 <script src="./i18n.js"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -25,15 +31,25 @@ ul{list-style:none}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 [data-reveal]{animation:rise .7s cubic-bezier(.2,.6,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 30%}
 @media(prefers-reduced-motion:reduce){[data-reveal],[data-spin],[data-marquee]{animation:none !important}html{scroll-behavior:auto}}
-@media(max-width:960px){
+section[id],footer[id]{scroll-margin-top:88px}
+:focus-visible{outline:2px solid #6B1F24;outline-offset:3px}
+[data-el="burger"] span{transition:transform .3s cubic-bezier(.2,.6,.2,1),opacity .2s}
+[data-el="burger"][data-open="true"] span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+[data-el="burger"][data-open="true"] span:nth-child(2){opacity:0}
+[data-el="burger"][data-open="true"] span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:1120px){
   [data-el="nav-links"]{display:none !important}
-  [data-el="nav-links"][data-open="true"]{display:flex !important;position:fixed;top:69px;left:0;right:0;background:#F4EFEB;flex-direction:column;gap:0 !important;border-bottom:1px solid rgba(26,26,26,.14);z-index:49}
+  [data-el="nav-links"][data-open="true"]{display:flex !important;position:fixed;top:81px;left:0;right:0;background:#F4EFEB;flex-direction:column;gap:0 !important;border-bottom:1px solid rgba(26,26,26,.14);box-shadow:0 16px 32px rgba(26,26,26,.12);z-index:49}
   [data-el="nav-links"][data-open="true"] a{padding:18px clamp(20px,5vw,64px);border-top:1px solid rgba(26,26,26,.14)}
   [data-el="nav-cta"]{display:none !important}
   [data-el="burger"]{display:flex !important}
+}
+@media(max-width:960px){
+  [data-el="hero-star"]{display:none !important}
   [data-gc]{grid-column:1/-1 !important;margin-top:0 !important}
   [data-el="hero-badge"]{left:auto !important;right:-12px !important;bottom:-40px !important}
   [data-el="xp-item"]{grid-template-columns:1fr !important;gap:8px !important}
+  [data-el="xp-tags"]{flex-direction:row !important;align-items:flex-start !important}
 }
 @media(max-width:560px){
   [data-el="about-cols"]{columns:1 !important}
@@ -46,8 +62,8 @@ ul{list-style:none}
 
 <header data-screen-label="Nav" style="position:fixed;left:0;right:0;top:0;z-index:50;background:rgba(244,239,235,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,26,26,.14)">
   <div style="max-width:1280px;margin:0 auto;padding:18px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;gap:24px">
-    <a href="#top" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.25rem;letter-spacing:.02em;color:#1A1A1A">{{ name }}<span style="color:#A6432F">.</span></a>
-    <nav data-el="nav-links" data-open="{{ menuOpenStr }}" aria-label="Navegação principal" style="display:flex;gap:clamp(16px,3vw,40px)">
+    <a href="#top" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.25rem;letter-spacing:.02em;color:#1A1A1A;white-space:nowrap">{{ name }}<span style="color:#A6432F">.</span></a>
+    <nav id="nav-principal" data-el="nav-links" data-open="{{ menuOpenStr }}" aria-label="Navegação principal" style="display:flex;gap:clamp(16px,3vw,40px)">
       <a href="#sobre" onClick="{{ closeMenu }}" style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#1A1A1A" style-hover="color:#6B1F24">Sobre</a>
       <a href="#habilidades" onClick="{{ closeMenu }}" style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#1A1A1A" style-hover="color:#6B1F24">Habilidades</a>
       <a href="#projetos" onClick="{{ closeMenu }}" style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#1A1A1A" style-hover="color:#6B1F24">Projetos</a>
@@ -55,11 +71,14 @@ ul{list-style:none}
       <a href="#contato" onClick="{{ closeMenu }}" style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.28em;color:#1A1A1A" style-hover="color:#6B1F24">Contato</a>
     </nav>
     <a data-el="nav-cta" href="#contato" style="white-space:nowrap;display:inline-flex;align-items:center;gap:.6em;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;padding:14px 32px;border-radius:999px;border:1px solid #6B1F24;background:#6B1F24;color:#FAF8F5;transition:all .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:#521418;border-color:#521418;color:#FFFFFF">Vamos conversar</a>
-    <button data-el="burger" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpenStr }}" aria-label="Abrir menu" style="display:none;width:44px;height:44px;border:1px solid #1A1A1A;border-radius:999px;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div data-i18n-slot></div>
+      <button data-el="burger" data-open="{{ menuOpenStr }}" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpenStr }}" aria-controls="nav-principal" aria-label="{{ menuLabel }}" style="display:none;width:44px;height:44px;border:1px solid #1A1A1A;border-radius:999px;background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px">
       <span style="display:block;width:18px;height:1.5px;background:#1A1A1A"></span>
       <span style="display:block;width:18px;height:1.5px;background:#1A1A1A"></span>
       <span style="display:block;width:18px;height:1.5px;background:#1A1A1A"></span>
     </button>
+    </div>
   </div>
 </header>
 
@@ -78,7 +97,7 @@ ul{list-style:none}
       <div data-gc data-reveal style="grid-column:8/13;position:relative;z-index:1">
         <div style="position:relative;aspect-ratio:3/4;background:#6B1F24;overflow:hidden">
           <div style="position:absolute;inset:0">
-            <image-slot id="hero-photo" shape="rect" src="https://framerusercontent.com/images/J6u91sNdmPRaSG1vXV6S9XKyog.jpg" placeholder="Sua foto de perfil · P&B · alto contraste · 3:4"></image-slot>
+            <img src="assets/julia-hero.jpg" alt="Julia Lima" width="800" height="800" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block">
           </div>
         </div>
         <svg data-el="hero-badge" data-spin viewBox="0 0 132 132" aria-hidden="true" style="position:absolute;left:-64px;bottom:56px;width:132px;height:132px;z-index:3;animation:spin 18s linear infinite">
@@ -90,7 +109,7 @@ ul{list-style:none}
       </div>
     </div>
     <svg aria-hidden="true" style="position:absolute;top:8%;right:6%;width:44px;height:44px;color:#6B1F24;opacity:.9"><use href="#star4"></use></svg>
-    <svg aria-hidden="true" style="position:absolute;top:30%;left:55%;width:22px;height:22px;color:#A6432F"><use href="#star4"></use></svg>
+    <svg data-el="hero-star" aria-hidden="true" style="position:absolute;top:30%;left:55%;width:22px;height:22px;color:#A6432F"><use href="#star4"></use></svg>
   </div>
   <sc-if value="{{ showMarquee }}" hint-placeholder-val="{{ true }}">
     <div aria-hidden="true" style="margin-top:clamp(64px,9vw,120px);background:#6B1F24;color:#F4EFEB;overflow:hidden;padding:18px 0;border-top:1px solid #521418;border-bottom:1px solid #521418">
@@ -117,12 +136,12 @@ ul{list-style:none}
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center">
       <div data-gc data-reveal style="grid-column:1/6;position:relative;min-height:340px">
         <figure style="background:#FAF8F5;padding:12px 12px 44px;box-shadow:0 12px 32px rgba(26,26,26,.12);width:min(280px,74%);position:relative;transform:rotate(3deg);margin:0 auto">
-          <div style="aspect-ratio:1/1.05;filter:grayscale(1) contrast(1.1)"><image-slot id="polaroid-2" shape="rect" placeholder="Foto de apoio 2 · P&B"></image-slot></div>
+          <div style="aspect-ratio:1/1.05;filter:grayscale(1) contrast(1.1)"><img src="assets/workshop-ia.png" alt="Julia apresentando em um workshop de IA" width="324" height="432" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
           <figcaption style="font-family:Italianno,cursive;font-size:1.5rem;text-align:center;position:absolute;left:0;right:0;bottom:6px;color:#1A1A1A">workshop de IA</figcaption>
         </figure>
       </div>
       <div data-gc data-reveal style="grid-column:7/13">
-        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.125rem,2vw,1.5rem);line-height:1.4;font-weight:400;margin-bottom:24px">Ajudo empresas a transformar ideias em produtos digitais que fazem sentido no mundo real. Seja desenhando um MVP, refinando uma experiência ou organizando um <em style="font-style:italic;color:#6B1F24">design system</em>, meu foco é criar soluções, úteis e duradouras.</p>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.125rem,2vw,1.5rem);line-height:1.4;font-weight:400;margin-bottom:24px">Ajudo empresas a transformar ideias em produtos digitais que fazem sentido no mundo real. Seja desenhando um MVP, refinando uma experiência ou organizando um <em style="font-style:italic;color:#6B1F24">design system</em>, meu foco é criar soluções úteis e duradouras.</p>
       </div>
     </div>
   </div>
@@ -163,7 +182,7 @@ ul{list-style:none}
         <ul style="position:relative;padding-left:28px;flex:1">
           <div style="position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:rgba(26,26,26,.14)"></div>
           <li style="position:relative;padding-bottom:28px" style-before="content:'';position:absolute;left:-28px;top:8px;width:11px;height:11px;border-radius:50%;background:#FAF8F5;border:1.5px solid #6B1F24">
-            <span style="font-family:Anton,sans-serif;font-size:1.125rem;letter-spacing:.1em;color:#6B1F24">Abr 2026 — o momento</span>
+            <span style="font-family:Anton,sans-serif;font-size:1.125rem;letter-spacing:.1em;color:#6B1F24">Abr 2026 — atual</span>
             <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.0625rem;margin-top:2px">Design Circuit</p>
             <p style="font-size:.75rem;opacity:.75;margin-top:4px;line-height:1.6">Formação intensiva em Product Design (UX/UI) focada no ciclo completo de produtos digitais.</p>
           </li>
@@ -193,22 +212,22 @@ ul{list-style:none}
       <article data-reveal>
         <div style="position:relative;overflow:hidden;background:#2e2e2e;aspect-ratio:16/10">
           <span style="position:absolute;top:14px;left:18px;z-index:2;font-family:Anton,sans-serif;font-size:clamp(2.25rem,4vw,3.5rem);color:#F4EFEB;mix-blend-mode:difference;line-height:1;pointer-events:none">01</span>
-          <div style="position:absolute;inset:0;filter:grayscale(1) contrast(1.1);transition:transform .6s cubic-bezier(.2,.6,.2,1)" style-hover="transform:scale(1.04)"><image-slot id="work-1" shape="rect" src="assets/pawmatch-cover.png" placeholder="Mockup / capa do projeto PawMatch"></image-slot></div>
+          <div style="position:absolute;inset:0;filter:grayscale(1) contrast(1.1);transition:transform .6s cubic-bezier(.2,.6,.2,1)" style-hover="transform:scale(1.04)"><img src="assets/pawmatch-cover.jpg" alt="Telas do app PawMatch em mockups de celular" width="2467" height="1069" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
         </div>
         <div style="display:flex;flex-direction:column;gap:12px;padding-top:20px">
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">UI/UX</span>
+            <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">UX/UI</span>
             <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Mobile App</span>
           </div>
           <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.5rem,2.4vw,1.875rem);line-height:1.15">Paw<em style="font-style:italic;color:#6B1F24">Match</em></h3>
           <p style="font-size:.8125rem;opacity:.8;max-width:46ch">App que desburocratiza a adoção de pets — um ecossistema onde abrigos e adotantes interagem com transparência, do benchmark à alta fidelidade.</p>
-          <a href="petmatch.html" style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;border-bottom:1px solid currentColor;padding-bottom:6px;display:inline-flex;gap:.6em;align-items:center;align-self:flex-start;color:#1A1A1A" style-hover="color:#6B1F24">Ver projeto <span style="display:inline-block;transition:transform .35s cubic-bezier(.2,.6,.2,1)" style-hover="transform:translateX(6px)">→</span></a>
+          <a href="petmatch.html" aria-label="Ver projeto PawMatch" style="display:inline-flex;align-items:center;gap:.6em;align-self:flex-start;margin-top:8px;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;padding:14px 32px;border-radius:999px;border:1px solid #6B1F24;background:#6B1F24;color:#FAF8F5;transition:all .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:#521418;border-color:#521418;color:#FFFFFF">Ver projeto <span style="display:inline-block;transition:transform .35s cubic-bezier(.2,.6,.2,1)" style-hover="transform:translateX(6px)">→</span></a>
         </div>
       </article>
       <article data-reveal>
         <div style="position:relative;overflow:hidden;background:#101828;aspect-ratio:16/10">
           <span style="position:absolute;top:14px;left:18px;z-index:2;font-family:Anton,sans-serif;font-size:clamp(2.25rem,4vw,3.5rem);color:#F4EFEB;mix-blend-mode:difference;line-height:1;pointer-events:none">02</span>
-          <div style="position:absolute;inset:0;filter:grayscale(1) contrast(1.1);transition:transform .6s cubic-bezier(.2,.6,.2,1)" style-hover="transform:scale(1.04)"><image-slot id="work-5" shape="rect" src="uploads/Mockuuups Free Clean desk with Dell display mockup.jpeg" placeholder="Mockup / capa do projeto Spirals"></image-slot></div>
+          <div style="position:absolute;inset:0;filter:grayscale(1) contrast(1.1);transition:transform .6s cubic-bezier(.2,.6,.2,1)" style-hover="transform:scale(1.04)"><img src="assets/spirals-cover.jpg" alt="Interface do Spirals exibida em um monitor sobre uma mesa" width="2000" height="1500" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></div>
         </div>
         <div style="display:flex;flex-direction:column;gap:12px;padding-top:20px">
           <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -218,12 +237,9 @@ ul{list-style:none}
           </div>
           <h3 style="font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.5rem,2.4vw,1.875rem);line-height:1.15">Spi<em style="font-style:italic;color:#6B1F24">rals</em></h3>
           <p style="font-size:.8125rem;opacity:.8;max-width:46ch">Plataforma de treinamento imersiva e interativa para o setor B2B industrial — interface 3D de alta fidelidade integrada à Unity.</p>
-          <a href="spirals.html" style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;border-bottom:1px solid currentColor;padding-bottom:6px;display:inline-flex;gap:.6em;align-items:center;align-self:flex-start;color:#1A1A1A" style-hover="color:#6B1F24">Ver projeto <span style="display:inline-block;transition:transform .35s cubic-bezier(.2,.6,.2,1)" style-hover="transform:translateX(6px)">→</span></a>
+          <a href="spirals.html" aria-label="Ver projeto Spirals" style="display:inline-flex;align-items:center;gap:.6em;align-self:flex-start;margin-top:8px;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;padding:14px 32px;border-radius:999px;border:1px solid #6B1F24;background:#6B1F24;color:#FAF8F5;transition:all .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:#521418;border-color:#521418;color:#FFFFFF">Ver projeto <span style="display:inline-block;transition:transform .35s cubic-bezier(.2,.6,.2,1)" style-hover="transform:translateX(6px)">→</span></a>
         </div>
       </article>
-    </div>
-    <div data-reveal style="display:flex;justify-content:center;margin-top:clamp(48px,7vw,88px)">
-      <a href="projetos.html" style="display:inline-flex;align-items:center;gap:.6em;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;padding:14px 32px;border-radius:999px;border:1px solid #1A1A1A;background:transparent;color:#1A1A1A;transition:all .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:#1A1A1A;color:#F4EFEB">Ver todos os projetos</a>
     </div>
   </div>
 </section>
@@ -247,25 +263,9 @@ ul{list-style:none}
             <li style="display:flex;gap:10px"><span style="flex:none;opacity:.5">—</span>Criação de wireframes, protótipos navegáveis e documentação de jornadas no Figma, alinhando requisitos de produto e usabilidade com o time de engenharia.</li>
           </ul>
         </div>
-        <div style="padding-top:6px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <div data-el="xp-tags" style="padding-top:6px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
           <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Logística</span>
           <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Tech</span>
-        </div>
-      </div>
-      <div data-el="xp-item" data-reveal style="display:grid;grid-template-columns:170px 1fr auto;gap:16px 40px;padding:clamp(24px,3.5vw,40px) 0;border-bottom:1px solid rgba(26,26,26,.14);align-items:start;transition:background .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:rgba(107,31,36,.04)">
-        <span style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:#A6432F;padding-top:6px;white-space:nowrap">Abr 2025 — Ago 2025</span>
-        <div>
-          <h3 style="font-weight:600;font-size:1.0625rem">UX/UI Designer — voluntária</h3>
-          <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;opacity:.85;margin-top:2px">SouJunior</p>
-          <ul style="margin-top:12px;font-size:.8125rem;opacity:.8;max-width:60ch">
-            <li style="display:flex;gap:10px;margin-bottom:4px"><span style="flex:none;opacity:.5">—</span>Atuação como voluntária no desenvolvimento de um portal de mentorias, participando da evolução do produto junto ao time de produto;</li>
-            <li style="display:flex;gap:10px;margin-bottom:4px"><span style="flex:none;opacity:.5">—</span>Contribuição diretamente nas atividades de UX Research, apoiando a definição de hipóteses, organização de pesquisas e análise de feedbacks de usuários para identificar melhorias na jornada;</li>
-            <li style="display:flex;gap:10px;margin-bottom:4px"><span style="flex:none;opacity:.5">—</span>Manutenção e melhorias em telas existentes, ajustando fluxos, hierarquia de informação e elementos visuais para tornar a navegação mais clara;</li>
-            <li style="display:flex;gap:10px"><span style="flex:none;opacity:.5">—</span>Apoio na evolução do Design System, garantindo consistência entre as interfaces e facilitando a escalabilidade das soluções.</li>
-          </ul>
-        </div>
-        <div style="padding-top:6px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-          <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Voluntariado</span>
         </div>
       </div>
       <div data-el="xp-item" data-reveal style="display:grid;grid-template-columns:170px 1fr auto;gap:16px 40px;padding:clamp(24px,3.5vw,40px) 0;border-bottom:1px solid rgba(26,26,26,.14);align-items:start;transition:background .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:rgba(107,31,36,.04)">
@@ -280,8 +280,24 @@ ul{list-style:none}
             <li style="display:flex;gap:10px"><span style="flex:none;opacity:.5">—</span>Colaboração em sprints com equipes multidisciplinares, alinhando design e tecnologia.</li>
           </ul>
         </div>
-        <div style="padding-top:6px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <div data-el="xp-tags" style="padding-top:6px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
           <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Web &amp; Mobile</span>
+        </div>
+      </div>
+      <div data-el="xp-item" data-reveal style="display:grid;grid-template-columns:170px 1fr auto;gap:16px 40px;padding:clamp(24px,3.5vw,40px) 0;border-bottom:1px solid rgba(26,26,26,.14);align-items:start;transition:background .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:rgba(107,31,36,.04)">
+        <span style="font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:#A6432F;padding-top:6px;white-space:nowrap">Abr 2025 — Ago 2025</span>
+        <div>
+          <h3 style="font-weight:600;font-size:1.0625rem">UX/UI Designer — voluntária</h3>
+          <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;opacity:.85;margin-top:2px">SouJunior</p>
+          <ul style="margin-top:12px;font-size:.8125rem;opacity:.8;max-width:60ch">
+            <li style="display:flex;gap:10px;margin-bottom:4px"><span style="flex:none;opacity:.5">—</span>Atuação como voluntária no desenvolvimento de um portal de mentorias, participando da evolução do produto junto ao time de produto;</li>
+            <li style="display:flex;gap:10px;margin-bottom:4px"><span style="flex:none;opacity:.5">—</span>Contribuição diretamente nas atividades de UX Research, apoiando a definição de hipóteses, organização de pesquisas e análise de feedbacks de usuários para identificar melhorias na jornada;</li>
+            <li style="display:flex;gap:10px;margin-bottom:4px"><span style="flex:none;opacity:.5">—</span>Manutenção e melhorias em telas existentes, ajustando fluxos, hierarquia de informação e elementos visuais para tornar a navegação mais clara;</li>
+            <li style="display:flex;gap:10px"><span style="flex:none;opacity:.5">—</span>Apoio na evolução do Design System, garantindo consistência entre as interfaces e facilitando a escalabilidade das soluções.</li>
+          </ul>
+        </div>
+        <div data-el="xp-tags" style="padding-top:6px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+          <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Voluntariado</span>
         </div>
       </div>
       <div data-el="xp-item" data-reveal style="display:grid;grid-template-columns:170px 1fr auto;gap:16px 40px;padding:clamp(24px,3.5vw,40px) 0;border-bottom:1px solid rgba(26,26,26,.14);align-items:start;transition:background .35s cubic-bezier(.2,.6,.2,1)" style-hover="background:rgba(107,31,36,.04)">
@@ -295,7 +311,7 @@ ul{list-style:none}
             <li style="display:flex;gap:10px"><span style="flex:none;opacity:.5">—</span>Interação contínua com base em feedbacks e dados de uso, documentando jornadas, personas e fluxos para aprimorar a experiência e a eficiência das soluções.</li>
           </ul>
         </div>
-        <div style="padding-top:6px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <div data-el="xp-tags" style="padding-top:6px;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
           <span style="display:inline-block;font-size:.625rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;border:1px solid currentColor;border-radius:999px;padding:4px 12px;opacity:.85">Logística</span>
         </div>
       </div>
@@ -313,6 +329,7 @@ ul{list-style:none}
         <a data-reveal href="{{ mailto }}" style="display:inline-flex;align-items:center;gap:16px;margin-top:40px;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.25rem,3vw,2rem);border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:10px;color:#FAF8F5;transition:all .35s cubic-bezier(.2,.6,.2,1)" style-hover="color:#FFFFFF;border-color:#FFFFFF">{{ email }} <span aria-hidden="true">↗</span></a>
         <p data-reveal style="margin-top:16px;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em"><a href="https://wa.me/5512981287571" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.6em;color:#F4EFEB;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:4px" style-hover="color:#FFFFFF;border-color:#FFFFFF">WhatsApp — +55 12 98128-7571 <span aria-hidden="true">↗</span></a></p>
         <p data-reveal style="margin-top:12px;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em"><a href="https://www.linkedin.com/in/julia-ca-lima/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.6em;color:#F4EFEB;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:4px" style-hover="color:#FFFFFF;border-color:#FFFFFF">LinkedIn — /julia-ca-lima <span aria-hidden="true">↗</span></a></p>
+        <p data-reveal style="margin-top:12px;font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em"><a href="assets/curriculo-julia-lima-2026.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.6em;color:#F4EFEB;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:4px" style-hover="color:#FFFFFF;border-color:#FFFFFF">Baixar currículo (PDF) <span aria-hidden="true">↗</span></a></p>
       </div>
       <div data-gc data-reveal style="grid-column:9/13;display:flex;justify-content:flex-end">
         <svg data-spin viewBox="0 0 150 150" aria-hidden="true" style="width:150px;height:150px;animation:spin 18s linear infinite;color:#F4EFEB">
@@ -343,6 +360,7 @@ class Component extends DCLogic {
       mailto: 'mailto:' + email,
       showMarquee: this.props.showMarquee ?? true,
       menuOpenStr: String(this.state.menuOpen),
+      menuLabel: this.state.menuOpen ? 'Fechar menu' : 'Abrir menu',
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false })
     };

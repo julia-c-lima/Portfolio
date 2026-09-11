@@ -1,4 +1,9 @@
 (function () {
+  // O runtime do Claude Design reinjeta os scripts do <helmet> no <head>,
+  // então este arquivo pode ser executado duas vezes. Só a primeira conta.
+  if (window.__portfolioI18n) return;
+  window.__portfolioI18n = true;
+
   var DICT = {
     // Navegação e geral
     "Sobre": "About",
@@ -12,11 +17,12 @@
     "Oi, eu sou a Julia!": "Hi, I'm Julia!",
     "— UX/UI Designer com experiência em UX Research, testes de usabilidade, design responsivo e criação de interfaces acessíveis e escaláveis, unindo pensamento estratégico e foco no usuário.": "— UX/UI Designer experienced in UX Research, usability testing, responsive design and the creation of accessible, scalable interfaces, combining strategic thinking with a user-centred focus.",
     "Ver projetos": "See projects",
+    "Quem sou eu": "About me",
     "Quem": "About",
     "sou eu": "me",
     "workshop de IA": "AI workshop",
     "Ajudo empresas a transformar ideias em produtos digitais que fazem sentido no mundo real. Seja desenhando um MVP, refinando uma experiência ou organizando um": "I help companies turn ideas into digital products that make sense in the real world. Whether designing an MVP, refining an experience or organising a",
-    ", meu foco é criar soluções, úteis e duradouras.": ", my focus is on creating solutions that are useful and built to last.",
+    ", meu foco é criar soluções úteis e duradouras.": ", my focus is on creating solutions that are useful and built to last.",
     "& formação": "& education",
     "Ferramentas mais": "Most used",
     "utilizadas": "tools",
@@ -25,8 +31,8 @@
     "Prototipagem": "Prototyping",
     "Testes de Usabilidade": "Usability Testing",
     "Educação": "Education",
-    "Formação": "Education",
-    "Abr 2026 — o momento": "Apr 2026 — present",
+    "Formação": "Academic background",
+    "Abr 2026 — atual": "Apr 2026 — present",
     "Formação intensiva em Product Design (UX/UI) focada no ciclo completo de produtos digitais.": "Intensive Product Design (UX/UI) program covering the full digital product cycle.",
     "Tecnólogo em Design Gráfico — concluído.": "Graphic Design technologist degree — completed.",
     "Licenciatura em Ciências Biológicas — concluído.": "Teaching degree in Biological Sciences — completed.",
@@ -64,7 +70,6 @@
 
     // Páginas de projeto
     "Voltar aos projetos": "Back to projects",
-    "Voltar ao início": "Back to home",
     "Projeto 01 — Adoção de pets": "Project 01 — Pet adoption",
     "Projeto 02 — Treinamento imersivo": "Project 02 — Immersive training",
     "Serviço": "Service",
@@ -154,14 +159,34 @@
     "funcionamento": "action",
     "As interfaces de alta fidelidade do sistema em funcionamento, evidenciando o contraste entre os componentes de controle, a assistência por chat e o foco absoluto no maquinário interativo.": "The system's high-fidelity interfaces in action, showing the contrast between control components, chat assistance and the absolute focus on the interactive machinery.",
     "Obrigada!": "Thank you!",
-    "O PawMatch é muito mais do que um estudo de caso para mim; ele representa o meu primeiro projeto oficial como Designer UI/UX. Cada tela, cada decisão de cor e cada fluxo foi uma oportunidade de aprendizado e descoberta.": "PawMatch is much more than a case study to me; it was my first official project as a UI/UX Designer. Every screen, colour decision and flow was a chance to learn and discover.",
+    "O PawMatch é muito mais do que um estudo de caso para mim; ele representa o meu primeiro projeto oficial como Designer UX/UI. Cada tela, cada decisão de cor e cada fluxo foi uma oportunidade de aprendizado e descoberta.": "PawMatch is much more than a case study to me; it was my first official project as a UI/UX Designer. Every screen, colour decision and flow was a chance to learn and discover.",
     "No Spirals entendi, na prática, que o trabalho não é deixar a tela bonita, e sim tirar peso da rotina de quem está no chão de fábrica. Cada fluxo e cada escolha visual nasceu de uma pergunta simples: isso facilita o trabalho dessa pessoa? O resultado foi algo raro em treinamento técnico: autonomia para quem opera, sem precisar de um manual ao lado.": "Spirals is where I learned, in practice, that the job is not to make the screen pretty but to take weight off the routine of the people on the factory floor. Every flow and visual choice came from one simple question: does this make their work easier? The result was something rare in technical training: autonomy for the operator, with no manual on the side.",
     "Próximo projeto": "Next project",
     "Todos os projetos": "All projects",
-    "Todos os": "All",
-    "projetos": "projects",
-    "Estudos de caso completos de UX/UI, do research à alta fidelidade. Cada projeto abre um case com processo, decisões de design e resultados.": "Full UX/UI case studies, from research to high fidelity. Each project opens a case with process, design decisions and outcomes.",
-    "Início": "Home"
+    "Início": "Home",
+
+    // Atributos, títulos e metadados
+    "Abrir menu": "Open menu",
+    "Fechar menu": "Close menu",
+    "Navegação principal": "Main navigation",
+    "Ver projeto PawMatch": "View PawMatch project",
+    "Ver projeto Spirals": "View Spirals project",
+    "Baixar currículo (PDF)": "Download résumé (PDF)",
+    "Julia apresentando em um workshop de IA": "Julia presenting at an AI workshop",
+    "Telas do app PawMatch em mockups de celular": "PawMatch app screens in phone mockups",
+    "Interface do Spirals exibida em um monitor sobre uma mesa": "The Spirals interface on a desktop monitor",
+    "Capa do projeto PawMatch": "PawMatch project cover",
+    "Principais telas do PawMatch: splash, onboarding, login, home, detalhes do pet, chat e formulário de adoção": "Main PawMatch screens: splash, onboarding, login, home, pet details, chat and adoption form",
+    "Tela do Spirals — módulo 3D com o maquinário em destaque": "Spirals screen — 3D module with the machinery in focus",
+    "Tela do Spirals — assistência por chat": "Spirals screen — chat assistance",
+    "Tela do Spirals — etapas de montagem": "Spirals screen — assembly steps",
+    "Tela do Spirals — detalhe do passo a passo": "Spirals screen — step-by-step detail",
+    "Julia Lima — UX/UI Designer": "Julia Lima — UX/UI Designer",
+    "PawMatch — Case de UX/UI · Julia Lima": "PawMatch — UX/UI Case Study · Julia Lima",
+    "Spirals — Case de UX/UI · Julia Lima": "Spirals — UX/UI Case Study · Julia Lima",
+    "Portfólio de Julia Lima, UX/UI Designer: UX Research, testes de usabilidade, design systems e interfaces acessíveis. Cases PawMatch e Spirals.": "Portfolio of Julia Lima, UX/UI Designer: UX Research, usability testing, design systems and accessible interfaces. Case studies: PawMatch and Spirals.",
+    "Case PawMatch: app que desburocratiza a adoção de pets. Research, persona, fluxo, UI e telas — projeto de UX/UI por Julia Lima.": "PawMatch case study: an app that cuts the red tape out of pet adoption. Research, persona, flow, UI and screens — a UX/UI project by Julia Lima.",
+    "Case Spirals: plataforma de treinamento imersivo 3D para a indústria, integrada à Unity. Research, persona, fluxo e interfaces — projeto de UX/UI por Julia Lima.": "Spirals case study: an immersive 3D training platform for industry, integrated with Unity. Research, persona, flow and interfaces — a UX/UI project by Julia Lima."
   };
 
   // Overrides por contexto (mesmo texto, tradução diferente)
@@ -171,41 +196,95 @@
     { sel: '#sobre h2', pt: 'Quem', en: 'About' }
   ];
 
-  var ORIG = new WeakMap();
-  var KEY = 'portfolio-lang';
-  var lang = localStorage.getItem(KEY) === 'en' ? 'en' : 'pt';
-  var observer = null;
+  // Atributos traduzidos além do texto visível
+  var ATTRS = ['aria-label', 'alt', 'title', 'content'];
 
-  function toEn(node, pt) {
-    for (var i = 0; i < CTX.length; i++) {
-      var c = CTX[i];
-      if (pt === c.pt && node.parentElement && node.parentElement.closest(c.sel)) return c.en;
+  var KEY = 'portfolio-lang';
+  var ORIG = new WeakMap();      // nó de texto -> texto original (PT)
+  var REVERSE = {};              // en -> pt, para desfazer traduções em atributos
+  for (var k in DICT) if (Object.prototype.hasOwnProperty.call(DICT, k) && !(DICT[k] in REVERSE)) REVERSE[DICT[k]] = k;
+  var observer = null;
+  var veil = null;
+
+  function readStored() {
+    try { return localStorage.getItem(KEY) === 'en' ? 'en' : 'pt'; } catch (e) { return 'pt'; }
+  }
+  function writeStored(code) {
+    try { localStorage.setItem(KEY, code); } catch (e) {}
+  }
+
+  var lang = readStored();
+
+  // Evita um "flash" em português para quem já escolheu inglês: esconde a
+  // página até a primeira tradução do conteúdo renderizado.
+  if (lang === 'en') {
+    veil = document.createElement('style');
+    veil.setAttribute('data-i18n-veil', '');
+    veil.textContent = 'body{visibility:hidden}';
+    (document.head || document.documentElement).appendChild(veil);
+    setTimeout(dropVeil, 2500); // segurança: nunca deixa a página invisível
+  }
+  function dropVeil() {
+    if (veil && veil.parentNode) veil.parentNode.removeChild(veil);
+    veil = null;
+  }
+
+  function translate(pt, node) {
+    if (node) {
+      for (var i = 0; i < CTX.length; i++) {
+        var c = CTX[i];
+        if (pt === c.pt && node.closest && node.closest(c.sel)) return c.en;
+      }
     }
     return DICT[pt];
+  }
+
+  function applyText(c) {
+    var base = ORIG.has(c) ? ORIG.get(c) : c.textContent;
+    var m = base.match(/^(\s*)([\s\S]*?)(\s*)$/);
+    if (!m || !m[2]) return;
+    var want = base;
+    if (lang === 'en') {
+      var hit = translate(m[2], c.parentElement);
+      if (hit) want = m[1] + hit + m[3];
+    }
+    if (c.textContent !== want) {
+      if (!ORIG.has(c)) ORIG.set(c, base);
+      c.textContent = want;
+    }
+  }
+
+  // Atributos podem ser reescritos pelo runtime (ex.: aria-label do menu muda
+  // com o estado), então não guardamos o original: traduzimos pelo valor atual.
+  function applyAttrs(el) {
+    for (var i = 0; i < ATTRS.length; i++) {
+      var a = ATTRS[i];
+      if (!el.hasAttribute(a)) continue;
+      var cur = el.getAttribute(a);
+      var want = lang === 'en' ? DICT[cur] : REVERSE[cur];
+      if (want && want !== cur) el.setAttribute(a, want);
+    }
   }
 
   function walk(node) {
     for (var i = 0; i < node.childNodes.length; i++) {
       var c = node.childNodes[i];
       if (c.nodeType === 3) {
-        var base = ORIG.has(c) ? ORIG.get(c) : c.textContent;
-        var m = base.match(/^(\s*)([\s\S]*?)(\s*)$/);
-        if (!m || !m[2]) continue;
-        var want = base;
-        if (lang === 'en') {
-          var hit = toEn(c, m[2]);
-          if (hit) want = m[1] + hit + m[3];
-        }
-        if (c.textContent !== want) {
-          if (!ORIG.has(c)) ORIG.set(c, base);
-          c.textContent = want;
-        }
+        applyText(c);
       } else if (c.nodeType === 1) {
-        if (c.hasAttribute && c.hasAttribute('data-i18n-ui')) continue;
-        if (c.tagName === 'SCRIPT' || c.tagName === 'STYLE') continue;
+        if (c.hasAttribute('data-i18n-ui')) continue;
+        if (c.tagName === 'SCRIPT' || c.tagName === 'STYLE' || c.tagName === 'X-DC') continue;
+        applyAttrs(c);
         walk(c);
       }
     }
+  }
+
+  function applyHead() {
+    var t = document.querySelector('title');
+    if (t && t.firstChild) applyText(t.firstChild);
+    var metas = document.head.querySelectorAll('meta[name="description"],meta[property="og:title"],meta[property="og:description"]');
+    for (var i = 0; i < metas.length; i++) applyAttrs(metas[i]);
   }
 
   function paintToggle() {
@@ -223,20 +302,24 @@
 
   function apply() {
     if (observer) observer.disconnect();
-    walk(document.body);
+    var root = document.getElementById('dc-root');
+    walk(root || document.body);
+    applyHead();
     document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
     paintToggle();
+    if (root && root.childNodes.length) dropVeil();
     if (observer) {
       observer.takeRecords();
-      observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+      observer.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['aria-label', 'alt', 'title'] });
     }
   }
 
-  function buildToggle() {
-    if (document.querySelector('[data-i18n-ui]')) return;
+  function makeToggle() {
     var wrap = document.createElement('div');
     wrap.setAttribute('data-i18n-ui', '');
-    wrap.style.cssText = 'position:fixed;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);z-index:80;display:flex;gap:0;padding:4px;border-radius:999px;border:1px solid rgba(26,26,26,.2);background:rgba(244,239,235,.92);backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(26,26,26,.14)';
+    wrap.setAttribute('role', 'group');
+    wrap.setAttribute('aria-label', 'Idioma / Language');
+    wrap.style.cssText = 'position:relative;display:inline-flex;gap:0;padding:4px;border-radius:999px;border:1px solid rgba(26,26,26,.2);background:rgba(250,248,245,.9)';
     var pill = document.createElement('span');
     pill.setAttribute('data-i18n-pill', '');
     pill.setAttribute('aria-hidden', 'true');
@@ -247,26 +330,54 @@
       b.setAttribute('data-lang', code);
       b.type = 'button';
       b.textContent = code.toUpperCase();
+      b.setAttribute('lang', code === 'pt' ? 'pt-BR' : 'en');
       b.setAttribute('aria-label', code === 'pt' ? 'Ver em português' : 'View in English');
-      b.style.cssText = 'min-width:44px;min-height:36px;border:0;border-radius:999px;cursor:pointer;font:600 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;background:transparent;color:#1A1A1A;position:relative;z-index:1;transition:color .3s';
+      b.style.cssText = 'min-width:40px;min-height:34px;border:0;border-radius:999px;cursor:pointer;font:600 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;background:transparent;color:#1A1A1A;position:relative;z-index:1;transition:color .3s';
       b.addEventListener('click', function () {
         if (lang === code) return;
         lang = code;
-        try { localStorage.setItem(KEY, code); } catch (e) {}
+        writeStored(code);
         apply();
       });
       wrap.appendChild(b);
     });
-    document.body.appendChild(wrap);
+    return wrap;
+  }
+
+  // Coloca o toggle no header renderizado ([data-i18n-slot] dentro de #dc-root).
+  // Nunca dentro do template cru (<x-dc>), senão o runtime copiaria os botões
+  // sem os handlers. Sem slot na página, cai para um botão flutuante.
+  function placeToggle() {
+    var root = document.getElementById('dc-root');
+    if (!root || !root.childNodes.length) return;
+    var ui = document.querySelector('[data-i18n-ui]');
+    var slot = root.querySelector('[data-i18n-slot]');
+    if (slot) {
+      if (ui && ui.parentNode === slot) return;
+      if (ui) ui.parentNode.removeChild(ui);
+      ui = makeToggle();
+      slot.appendChild(ui);
+    } else {
+      if (ui && ui.parentNode === document.body) return;
+      if (ui) ui.parentNode.removeChild(ui);
+      ui = makeToggle();
+      ui.style.position = 'fixed';
+      ui.style.right = 'clamp(16px,3vw,32px)';
+      ui.style.bottom = 'clamp(16px,3vw,32px)';
+      ui.style.zIndex = '80';
+      ui.style.boxShadow = '0 8px 24px rgba(26,26,26,.14)';
+      document.body.appendChild(ui);
+    }
+    paintToggle();
   }
 
   function start() {
-    buildToggle();
     var t;
     observer = new MutationObserver(function () {
       clearTimeout(t);
-      t = setTimeout(function () { buildToggle(); apply(); }, 80);
+      t = setTimeout(function () { placeToggle(); apply(); }, 60);
     });
+    placeToggle();
     apply();
   }
 
